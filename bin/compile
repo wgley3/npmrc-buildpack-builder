@@ -15,9 +15,9 @@ export_env_dir "$ENV_DIR"
 
 echo "Creating .npmrc file"
 
-echo "" >> $BUILD_DIR/.npmrc
-echo "@branchpolitics:registry=https://node.bit.cloud" >> $BUILD_DIR/.npmrc
-echo "//node.bitsrc.io/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR/.npmrc
-echo "//node.bit.cloud/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR/.npmrc
+echo "" >> $BUILD_DIR/client/.npmrc
+echo "@branchpolitics:registry=https://node.bit.cloud" >> $BUILD_DIR/client/.npmrc
+echo "//node.bitsrc.io/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR/client/.npmrc
+echo "//node.bit.cloud/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR/client/.npmrc
 
-cat $BUILD_DIR/.npmrc
+cat $BUILD_DIR/client/.npmrc
