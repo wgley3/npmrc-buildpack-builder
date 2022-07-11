@@ -13,7 +13,11 @@ BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 source $BP_DIR/lib/environment.sh
 export_env_dir "$ENV_DIR"
 
+echo "Creating .npmrc file"
+
 echo "" >> $BUILD_DIR/.npmrc
 echo "@branchpolitics:registry=https://node.bit.cloud" >> $BUILD_DIR/.npmrc
 echo "//node.bitsrc.io/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR/.npmrc
 echo "//node.bit.cloud/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR/.npmrc
+
+cat $BUILD_DIR/.npmrc
