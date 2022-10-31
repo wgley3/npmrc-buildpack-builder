@@ -3,7 +3,9 @@
 This is a Heroku buildpack that enables authenticated npm operations
 within a Heroku dyno.
 
-It detects an `NPM_AUTH_TOKEN` environment variable and creates a `.npmrc` file.
+It detects an `BIT_NPM_AUTH_TOKEN` environment variable and creates a `.npmrc` file.
+
+It also detects an env var called $BUILD_SUBFOLDER, which is the sub-directory of the package.json of question (e.g. /client). Leave blank if in the main directory.
 
 It is the soul sister of the [GitHub Buildpack](https://github.com/zeke/github-buildpack).
 
