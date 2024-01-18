@@ -14,17 +14,23 @@ source $BP_DIR/lib/environment.sh
 export_env_dir "$ENV_DIR"
 
 IFS='|' read -r -a build_subfolders <<< "$BUILD_SUBFOLDER"
+echo "Detected ${#build_subfolders[@]} build_subfolders"
 
 for build_subfolder in "${build_subfolders[@]}"
 do
-    echo "Creating .npmrc file in $build_subfolder"
+    if [ "$build_subfolder" = "MAIN" ]; then
+        mod=""
+    else
+        mod="$build_subfolder"
+    fi
+    echo "Creating .npmrc file in $mod"
 
-    echo "" >> $BUILD_DIR$build_subfolder/.npmrc
-    echo "@branchpolitics:registry=https://node.bit.cloud" >> $BUILD_DIR$build_subfolder/.npmrc
-    echo "//node.bitsrc.io/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR$build_subfolder/.npmrc
-    echo "//node.bit.cloud/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR$build_subfolder/.npmrc
+    echo "" >> $BUILD_DIR$mod/.npmrc
+    echo "@branchpolitics:registry=https://node.bit.cloud" >> $BUILD_DIR$mod/.npmrc
+    echo "//node.bitsrc.io/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR$mod/.npmrc
+    echo "//node.bit.cloud/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR$mod/.npmrc
 
-    cat $BUILD_DIR$build_subfolder/.npmrc
+    cat $BUILD_DIR$mod/.npmrc
 done
 
 # echo "Creating .npmrc file in $$BUILD_SUBFOLDER"
