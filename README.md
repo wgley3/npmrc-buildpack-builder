@@ -6,6 +6,7 @@ within a Heroku dyno.
 It detects an `BIT_NPM_AUTH_TOKEN` environment variable and creates a `.npmrc` file.
 
 It also detects an env var called $BUILD_SUBFOLDER, which is the sub-directory of the package.json of question (e.g. /client). Leave blank if in the main directory.
+In the case you need the npmrc file in both the sub-directory and main directory, you can pass in multiple values here that are pipe seperated. e.g. `/client|`
 
 It is the soul sister of the [GitHub Buildpack](https://github.com/zeke/github-buildpack).
 
