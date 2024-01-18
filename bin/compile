@@ -17,7 +17,7 @@ IFS='|' read -r -a build_subfolders <<< "$BUILD_SUBFOLDER"
 
 for build_subfolder in "${build_subfolders[@]}"
 do
-    echo "Creating .npmrc file in $$build_subfolder"
+    echo "Creating .npmrc file in $build_subfolder"
 
     echo "" >> $BUILD_DIR$build_subfolder/.npmrc
     echo "@branchpolitics:registry=https://node.bit.cloud" >> $BUILD_DIR$build_subfolder/.npmrc
