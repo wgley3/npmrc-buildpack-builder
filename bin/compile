@@ -26,9 +26,9 @@ do
     echo "Creating .npmrc file in $mod"
 
     echo "" >> $BUILD_DIR$mod/.npmrc
-    echo "@branchpolitics:registry=https://node.bit.cloud" >> $BUILD_DIR$mod/.npmrc
+    echo "@branchpolitics:registry=node-registry.bit.cloud" >> $BUILD_DIR$mod/.npmrc
     echo "//node.bitsrc.io/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR$mod/.npmrc
-    echo "//node.bit.cloud/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR$mod/.npmrc
+    echo "//node-registry.bit.cloud/:_authToken=$BIT_NPM_AUTH_TOKEN" >> $BUILD_DIR$mod/.npmrc
 
     if [ -n "${GL_NPM_AUTH_TOKEN:-}" ]; then
         echo "GL_NPM_AUTH_TOKEN is set, adding @triumphant registry to .npmrc"
